@@ -313,9 +313,14 @@ class NumberConverterTests: XCTestCase {
         XCTAssertEqual(result, "three billion")
     }
 
+    func test_GeneratesBillions_4000000000000() throws {
+        let result = NumberConverter.toPhrase(number: 4000000000000)
+        XCTAssertEqual(result, "four trillion")
+    }
+
     func test_GeneratesBigAssNumber() throws {
-        let result = NumberConverter.toPhrase(number: 123456789111)
-        XCTAssertEqual(result, "one hundred twenty three billion four hundred fifty six million seven hundred eighty nine thousand one hundred eleven")
+        let result = NumberConverter.toPhrase(number: 123456789111222)
+        XCTAssertEqual(result, "one hundred twenty three trillion four hundred fifty six billion seven hundred eighty nine million one hundred eleven thousand two hundred twenty two")
     }
 
 }

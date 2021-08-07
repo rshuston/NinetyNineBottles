@@ -10,12 +10,14 @@ import Foundation
 class NumberConverter {
     
     class func toPhrase(number: Int) -> String {
-        let billionsTriplet = number / 1_000_000_000
-        let millionsTriplet = (number - billionsTriplet * 1_000_000_000) / 1_000_000
-        let thousandsTriplet = (number - billionsTriplet * 1_000_000_000 - millionsTriplet * 1_000_000) / 1_000
-        let hundredsTriplet = number - billionsTriplet * 1_000_000_000 - millionsTriplet * 1_000_000 - thousandsTriplet * 1_000
+        let trillionsTriplet = number / 1_000_000_000_000
+        let billionsTriplet = (number - trillionsTriplet * 1_000_000_000_000) / 1_000_000_000
+        let millionsTriplet = (number - trillionsTriplet * 1_000_000_000_000 - billionsTriplet * 1_000_000_000) / 1_000_000
+        let thousandsTriplet = (number - trillionsTriplet * 1_000_000_000_000 - billionsTriplet * 1_000_000_000 - millionsTriplet * 1_000_000) / 1_000
+        let hundredsTriplet = number - trillionsTriplet * 1_000_000_000_000 - billionsTriplet * 1_000_000_000 - millionsTriplet * 1_000_000 - thousandsTriplet * 1_000
         
-        var result = tripletToPhrase(billionsTriplet, tripletName: "billion ")
+        var result = tripletToPhrase(trillionsTriplet, tripletName: "trillion ")
+        result += tripletToPhrase(billionsTriplet, tripletName: "billion ")
         result += tripletToPhrase(millionsTriplet, tripletName: "million ")
         result += tripletToPhrase(thousandsTriplet, tripletName: "thousand ")
         result += tripletToPhrase(hundredsTriplet, tripletName: "")

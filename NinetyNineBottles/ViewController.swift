@@ -35,6 +35,9 @@ class ViewController: NSViewController {
             return 0
         } dst: { value in
             self.o_numberComboBox.stringValue = String(value)
+        } completion: {
+            self.o_singButton.isEnabled = true
+            self.o_stfuButton.isEnabled = false
         }
     }
     

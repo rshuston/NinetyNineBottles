@@ -13,8 +13,9 @@ class SongPlayer: NSObject, AVSpeechSynthesizerDelegate {
     var synthesizer: AVSpeechSynthesizer?
     var speechVoice: AVSpeechSynthesisVoice?
     
-    var src: (() -> Int) = { 99 }
-    var dst: ((Int) -> Void) = { (_) in }
+    var src: () -> Int = { 99 }
+    var dst: (Int) -> Void = { (_) in }
+    var completion: () -> Void = { }
         
     struct Phrase {
         let text: String?
@@ -37,6 +38,7 @@ class SongPlayer: NSObject, AVSpeechSynthesizerDelegate {
     ];
     
     var nextPhraseIndex = 0
+    var lastPhraseSpoken = false
 
     override init() {
         super.init()
@@ -60,11 +62,18 @@ class SongPlayer: NSObject, AVSpeechSynthesizerDelegate {
         return voice
     }
 
-    func Start(src: @escaping () -> Int, dst: @escaping (Int) -> Void) {
+    func Start(src: @escaping () -> Int, dst: @escaping (Int) -> Void, completion: @escaping () -> Void) {
         self.src = src
         self.dst = dst
+        self.completion = completion
         
-        let numberOfBottlesPhrase = NumberConverter.toPhrase(number: src())
+        let numberOfBottles = src()
+        var numberOfBottlesPhrase = NumberConverter.toPhrase(number: src())
+        if numberOfBottles == 1 {
+            numberOfBottlesPhrase = numberOfBottlesPhrase.replacingOccurrences(of: "bottles", with: "bottle")
+        }
+        
+        lastPhraseSpoken = false
         
         let phrase = phraseTable[0]
         let utterance = AVSpeechUtterance(string: numberOfBottlesPhrase)
@@ -81,29 +90,43 @@ class SongPlayer: NSObject, AVSpeechSynthesizerDelegate {
     // MARK: AVSpeechSynthesizerDelegate
     
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        if lastPhraseSpoken {
+            completion()
+            return
+        }
+        
         let phrase = phraseTable[nextPhraseIndex]
 
         var numberOfBottles = src()
-        if phrase.countDown {
+        if phrase.countDown && numberOfBottles > 0  {
             numberOfBottles -= 1
             dst(numberOfBottles)
         }
 
-        let numberOfBottlesPhrase = NumberConverter.toPhrase(number: numberOfBottles)
-
-        let text: String
+        var text: String
         if phrase.text != nil {
             text = phrase.text!
+            if numberOfBottles == 1 {
+                text = text.replacingOccurrences(of: "bottles", with: "bottle")
+            }
         } else {
-            text = numberOfBottlesPhrase
+            if numberOfBottles > 0 {
+                text = NumberConverter.toPhrase(number: numberOfBottles)
+            } else {
+                text = "no more"
+            }
         }
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = speechVoice
         utterance.pitchMultiplier = phrase.pitchMultipler
         synthesizer.speak(utterance)
+
         nextPhraseIndex += 1
         if nextPhraseIndex >= phraseTable.count {
             nextPhraseIndex = 0
+        }
+        if numberOfBottles == 0 && nextPhraseIndex == 0 {
+            lastPhraseSpoken = true
         }
     }
     
