@@ -31,7 +31,7 @@ class SongPlayer: NSObject, AVSpeechSynthesizerDelegate {
         Phrase(text: " bottles of",                     pitchMultipler: 0.8,    countDown: false),
         Phrase(text: " beer.",                          pitchMultipler: 1.1,    countDown: false),
         Phrase(text: "take one down, pass it around,",  pitchMultipler: 0.95,   countDown: false),
-        Phrase(text: nil,                               pitchMultipler: 0.7,    countDown: true),
+        Phrase(text: nil,                               pitchMultipler: 0.75,    countDown: true),
         Phrase(text: " bottles",                        pitchMultipler: 0.85,   countDown: false),
         Phrase(text: " of",                             pitchMultipler: 0.95,   countDown: false),
         Phrase(text: " beer on the wall.",              pitchMultipler: 1.0,    countDown: false),
