@@ -23,6 +23,10 @@ class ViewController: NSViewController {
         o_singButton.isEnabled = true
         o_stfuButton.isEnabled = false
     }
+    
+    override func viewWillAppear() {
+        self.view.window?.center()
+    }
 
     @IBAction func singButtonSelected(_ sender: Any) {
         o_singButton.isEnabled = false
