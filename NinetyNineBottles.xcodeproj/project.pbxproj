@@ -15,6 +15,7 @@
 		4EBD6FCE26BB09B500C6A134 /* NinetyNineBottlesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBD6FCD26BB09B500C6A134 /* NinetyNineBottlesUITests.swift */; };
 		4EBD6FDC26BB13E400C6A134 /* NumberConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBD6FDB26BB13E400C6A134 /* NumberConverter.swift */; };
 		4EBD6FDE26BB1E2200C6A134 /* NumberConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBD6FDD26BB1E2200C6A134 /* NumberConverterTests.swift */; };
+		4EECDFAD26BC55BF005EB1D4 /* SongPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EECDFAC26BC55BF005EB1D4 /* SongPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		4EBD6FCF26BB09B500C6A134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EBD6FDB26BB13E400C6A134 /* NumberConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberConverter.swift; sourceTree = "<group>"; };
 		4EBD6FDD26BB1E2200C6A134 /* NumberConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberConverterTests.swift; sourceTree = "<group>"; };
+		4EECDFAC26BC55BF005EB1D4 /* SongPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			children = (
 				4EBD6FAF26BB09B400C6A134 /* AppDelegate.swift */,
 				4EBD6FB126BB09B400C6A134 /* ViewController.swift */,
+				4EECDFAC26BC55BF005EB1D4 /* SongPlayer.swift */,
 				4EBD6FDB26BB13E400C6A134 /* NumberConverter.swift */,
 				4EBD6FB326BB09B500C6A134 /* Assets.xcassets */,
 				4EBD6FB526BB09B500C6A134 /* Main.storyboard */,
@@ -262,6 +265,7 @@
 				4EBD6FB226BB09B400C6A134 /* ViewController.swift in Sources */,
 				4EBD6FDC26BB13E400C6A134 /* NumberConverter.swift in Sources */,
 				4EBD6FB026BB09B400C6A134 /* AppDelegate.swift in Sources */,
+				4EECDFAD26BC55BF005EB1D4 /* SongPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
