@@ -36,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E910B0A26BE18F1000A264A /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		4E910B0B26BE18F1000A264A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4EBD6FAC26BB09B400C6A134 /* NinetyNineBottles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NinetyNineBottles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EBD6FAF26BB09B400C6A134 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EBD6FB126BB09B400C6A134 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,8 @@
 		4EBD6FA326BB09B400C6A134 = {
 			isa = PBXGroup;
 			children = (
+				4E910B0B26BE18F1000A264A /* README.md */,
+				4E910B0A26BE18F1000A264A /* LICENSE */,
 				4EBD6FAE26BB09B400C6A134 /* NinetyNineBottles */,
 				4EBD6FC126BB09B500C6A134 /* NinetyNineBottlesTests */,
 				4EBD6FCC26BB09B500C6A134 /* NinetyNineBottlesUITests */,
